@@ -1,0 +1,8 @@
+interface:
+  display_name: "High Quality PPT Web"
+  short_description: "Generate polished Chinese-first web slide decks"
+  brand_color: "#2E6FDC"
+  default_prompt: "Use $high-quality-ppt-web to turn my notes into a polished Chinese web slide deck."
+
+policy:
+  allow_implicit_invocation: true
