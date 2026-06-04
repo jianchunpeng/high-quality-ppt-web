@@ -18,6 +18,7 @@ Use these parts deliberately:
 - image asset: cover hero, section visual, evidence photo, texture, map, generated illustration
 - data component: KPI, table, matrix, chart, map, process diagram
 - motion pattern: reveal, transition, path draw, counter, tab, toggle
+- presenter support: notes, script, timer, overview, presenter window
 - QA gate: browser, mobile, image crop, console, print/PDF when needed
 
 ## Selection Before Construction
@@ -29,6 +30,7 @@ Before writing large amounts of HTML, decide:
 - which pages need images
 - which pages need charts or diagrams
 - which motion patterns support the talk
+- whether speaker notes or presenter mode are needed
 - which outputs must be verified
 
 This prevents attractive but incoherent decks.

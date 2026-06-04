@@ -39,6 +39,8 @@ Use this before delivery and when diagnosing a weak deck.
 - Template placeholders, stats, dates, names, labels, and image slots are all replaced with real content.
 - Chinese typography has been checked in the actual layout, especially title slides and dense body slides.
 - Added charts or data components match the chosen template's palette, spacing, and component grammar.
+- Theme colors, type scale, surfaces, and accents come from a token system or coherent template variables.
+- Layouts are selected as reusable page roles instead of improvised one-off pages.
 
 ## Motion and Interaction
 
@@ -48,6 +50,9 @@ Use this before delivery and when diagnosing a weak deck.
 - Section transitions feel consistent.
 - Interaction helps comparison, explanation, or pacing.
 - Reduced-motion behavior exists or motion is restrained enough to be acceptable.
+- Presenter-only notes, scripts, and cue lines are hidden from audience slides.
+- Presenter mode, overview mode, or speaker notes are checked if included.
+- Animations are purposeful and not stacked into visual noise.
 
 ## Browser Verification
 
@@ -58,6 +63,7 @@ Use this before delivery and when diagnosing a weak deck.
 - Browser console has no blocking errors.
 - Referenced local assets load correctly.
 - If template previews were created, each preview was opened or browser-checked before asking the user to choose.
+- PNG/PDF/export output is separately verified if the user requested export-ready files.
 
 ## Failure Signals
 
@@ -71,4 +77,6 @@ Revise if any of these appear:
 - the deck mixes multiple template languages
 - Chinese text looks weaker than the Latin typography
 - charts look pasted in from a different design system
+- presenter notes leak onto audience-visible slides
+- theme tokens are ignored and random hard-coded colors accumulate
 - the final answer says "not verified" when verification was feasible
