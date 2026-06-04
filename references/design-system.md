@@ -1,11 +1,14 @@
 # Design System
 
-These rules define the visual baseline for high-quality web slides.
+These rules are fallback guardrails for `high-quality-ppt-web`.
+
+When `frontend-slides` is available, its fixed 1920x1080 stage rules win over this file. Use this file for palette, typography, and quality checks, not as a replacement for `frontend-slides`.
 
 ## Structure
 
 - Each slide is a 16:9 canvas centered in the viewport.
-- Use `min-height: 100vh` wrappers and `scroll-snap-align: start`.
+- Prefer a fixed 1920x1080 stage scaled uniformly to the viewport.
+- Use `scroll-snap` only as a fallback when not following `frontend-slides`.
 - Keep a consistent safe area: 5-7% of slide width.
 - Prefer two-column, editorial grid, metric wall, process rail, comparison matrix, and split evidence layouts.
 - Do not put cards inside cards.
