@@ -1,8 +1,8 @@
 interface:
   display_name: "High Quality PPT Web"
-  short_description: "Generate polished Chinese-first web slide decks"
+  short_description: "Orchestrate structure, Chinese rewrite, and web slide rendering"
   brand_color: "#2E6FDC"
-  default_prompt: "Use $high-quality-ppt-web to turn my notes into a polished Chinese web slide deck."
+  default_prompt: "Use $high-quality-ppt-web to orchestrate structure, Chinese copy polishing, and HTML slide rendering for my notes."
 
 policy:
   allow_implicit_invocation: true
