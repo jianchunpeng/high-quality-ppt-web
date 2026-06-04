@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Slide Deck</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --fg: #101820;
+      --muted: #5e6978;
+      --accent: #2e6fdc;
+      --surface: #ffffff;
+      --slide-w: 1920;
+      --slide-h: 1080;
+      --scale: min(calc(100vw / var(--slide-w)), calc(100vh / var(--slide-h)));
+    }
+
+    * { box-sizing: border-box; }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #0f141c;
+      color: var(--fg);
+      font-family: Inter, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+    }
+
+    .viewport {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .deck {
+      width: calc(var(--slide-w) * 1px);
+      height: calc(var(--slide-h) * 1px);
+      transform: scale(var(--scale));
+      transform-origin: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 96px 112px;
+      display: grid;
+      align-content: center;
+      gap: 32px;
+      opacity: 0;
+      transform: translateX(56px);
+      transition: opacity 700ms ease, transform 700ms ease;
+      pointer-events: none;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 1220px;
+      font-size: 92px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 1200px;
+      font-size: 64px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.38;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .panel {
+      min-height: 220px;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid rgba(16, 24, 32, 0.1);
+      border-radius: 8px;
+    }
+
+    .panel strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 30px;
+    }
+
+    .panel span {
+      color: var(--muted);
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .is-active [data-reveal] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .is-active [data-delay="1"] { transition-delay: 120ms; }
+    .is-active [data-delay="2"] { transition-delay: 240ms; }
+    .is-active [data-delay="3"] { transition-delay: 360ms; }
+
+    .progress {
+      position: fixed;
+      left: 24px;
+      right: 24px;
+      bottom: 20px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.16);
+      z-index: 10;
+    }
+
+    .progress > i {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 360ms ease;
+    }
+
+    .counter {
+      position: fixed;
+      right: 24px;
+      bottom: 34px;
+      z-index: 10;
+      color: rgba(255, 255, 255, 0.78);
+      font: 14px/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide,
+      [data-reveal],
+      .progress > i {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport">
+    <main class="deck" id="deck" aria-live="polite">
+      <section class="slide is-active" data-slide>
+        <p class="eyebrow" data-reveal>Section 01</p>
+        <h1 data-reveal data-delay="1">Replace with a strong presentation claim</h1>
+        <p class="lead" data-reveal data-delay="2">Use this template as a stable 16:9 shell, then replace every placeholder before delivery.</p>
+      </section>
+
+      <section class="slide" data-slide>
+        <h2 data-reveal>One slide, one job</h2>
+        <div class="grid">
+          <div class="panel" data-reveal data-delay="1"><strong>Claim</strong><span>State the point in the title.</span></div>
+          <div class="panel" data-reveal data-delay="2"><strong>Evidence</strong><span>Show only the evidence needed now.</span></div>
+          <div class="panel" data-reveal data-delay="3"><strong>Action</strong><span>Close with what the audience should do.</span></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
+  <div class="counter" id="counter" aria-hidden="true"></div>
+
+  <script>
+    const slides = [...document.querySelectorAll("[data-slide]")];
+    const progress = document.getElementById("progress");
+    const counter = document.getElementById("counter");
+    let index = 0;
+
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
+      progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+      counter.textContent = `${index + 1} / ${slides.length}`;
+    }
+
+    function advance(step) {
+      show(index + step);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (["ArrowRight", "PageDown", " "].includes(event.key)) advance(1);
+      if (["ArrowLeft", "PageUp"].includes(event.key)) advance(-1);
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(slides.length - 1);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("button, a, input, textarea, select")) return;
+      advance(event.shiftKey ? -1 : 1);
+    });
+
+    show(0);
+  </script>
+</body>
+</html>

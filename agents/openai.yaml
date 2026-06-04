@@ -1,8 +1,8 @@
 interface:
   display_name: "High Quality PPT Web"
-  short_description: "Orchestrate structure, Chinese rewrite, and web slide rendering"
+  short_description: "Guide, plan, and render dynamic Chinese web presentation decks"
   brand_color: "#2E6FDC"
-  default_prompt: "Use $high-quality-ppt-web to orchestrate structure, Chinese copy polishing, and HTML slide rendering for my notes."
+  default_prompt: "Use $high-quality-ppt-web to turn my material into a polished, dynamic HTML presentation. Ask targeted questions if the brief is unclear, then plan the outline, images, motion, and final deck."
 
 policy:
   allow_implicit_invocation: true
