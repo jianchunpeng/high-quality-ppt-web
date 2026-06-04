@@ -5,7 +5,7 @@ description: Orchestrate guizang-ppt-skill for PPT structure, humanizer-zh for C
 
 # High Quality PPT Web
 
-Version: 1.2
+Version: 1.3
 
 Use this skill as a director for web-native presentation work. It coordinates:
 
@@ -34,6 +34,9 @@ Keep this file lean. Load reference files only when the task needs them:
 - `references/image-planning.md`: use before generating, placing, cropping, or embedding images.
 - `references/motion-patterns.md`: use when making dynamic or interactive HTML slides.
 - `references/external-template-libraries.md`: use when an external HTML template library could improve visual quality, especially `zarazhangrui/beautiful-html-templates`.
+- `references/template-selection-protocol.md`: use when the user should choose a visual direction from three title-slide previews.
+- `references/template-adaptation-checklist.md`: use when adapting external templates, especially for Chinese typography, charts, assets, and print/PDF risks.
+- `references/standard-parts-philosophy.md`: use when deciding whether to assemble from templates, charts, motion patterns, image assets, or local components instead of designing from scratch.
 - `references/quality-checklist.md`: use before delivery and when diagnosing a weak deck.
 - `references/slide-types.md`: use when assigning slide jobs and layouts.
 - `references/design-system.md`: use as fallback visual guardrails when `frontend-slides` is unavailable or too general.
@@ -89,6 +92,7 @@ Choose one mode from the user's situation:
 
 4. Template strategy.
    - If the deck needs a distinctive visual system, load `references/external-template-libraries.md`.
+   - If the user has not already chosen a visual direction, load `references/template-selection-protocol.md`.
    - For `beautiful-html-templates`, match occasion and mood against `index.json`, pick three genuinely different candidates, and create title-slide previews before building the full deck.
    - If using an external template, preserve its visual system and extend missing layouts from inside that system.
    - If the user wants speed or offline work, use the local `assets/web-slide-template/index.html` instead.
@@ -112,6 +116,8 @@ Choose one mode from the user's situation:
    - Load `frontend-slides`.
    - Use the fixed 1920x1080 slide stage.
    - Load `references/motion-patterns.md` for dynamic or interactive decks.
+   - Load `references/standard-parts-philosophy.md` when deciding whether to use a template, chart component, image asset, motion pattern, or custom code.
+   - Load `references/template-adaptation-checklist.md` before modifying an external template.
    - Adapt `assets/web-slide-template/index.html` when starting from scratch and no project scaffold exists.
    - Use small CSS/JS interactions by default; avoid heavy libraries unless requested or already present.
 
@@ -128,6 +134,8 @@ Choose one mode from the user's situation:
 - Do not ask a long generic questionnaire. Ask fewer, sharper questions after reading available material.
 - Do not build a static slideshow when the user asked for HTML/web slides. Add useful transitions, reveal states, navigation, and interaction.
 - Do not mash layouts from different external templates into one deck. Pick one visual system and extend it consistently.
+- Do not assume AI has stable visual taste. Let the user choose among real visual previews when visual direction matters.
+- Do not ignore Chinese typography and chart gaps when adapting templates originally tuned for Latin text.
 - Do not leave visual verification undone when a browser check is feasible.
 
 ## Delivery Summary

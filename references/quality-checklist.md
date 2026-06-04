@@ -9,6 +9,7 @@ Use this before delivery and when diagnosing a weak deck.
 - Duration or slide count is appropriate.
 - One style preset dominates the visual direction.
 - Assumptions are stated when the user did not decide.
+- If visual direction matters, the user chose from real previews or the skipped-preview assumption is stated.
 
 ## Structure
 
@@ -36,6 +37,8 @@ Use this before delivery and when diagnosing a weak deck.
 - The palette is not a single-hue wash.
 - If an external template is used, one visual system is preserved instead of mixing templates.
 - Template placeholders, stats, dates, names, labels, and image slots are all replaced with real content.
+- Chinese typography has been checked in the actual layout, especially title slides and dense body slides.
+- Added charts or data components match the chosen template's palette, spacing, and component grammar.
 
 ## Motion and Interaction
 
@@ -65,4 +68,7 @@ Revise if any of these appear:
 - the HTML deck feels like exported static PPT
 - images are portrait-cropped into 16:9 frames
 - the deck looks stylish but does not support a live talk
+- the deck mixes multiple template languages
+- Chinese text looks weaker than the Latin typography
+- charts look pasted in from a different design system
 - the final answer says "not verified" when verification was feasible

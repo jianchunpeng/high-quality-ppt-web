@@ -1,8 +1,8 @@
 interface:
   display_name: "High Quality PPT Web"
-  short_description: "Guide, template, plan, and render dynamic Chinese web presentation decks"
+  short_description: "Guide, preview templates, plan, and render dynamic Chinese web decks"
   brand_color: "#2E6FDC"
-  default_prompt: "Use $high-quality-ppt-web to turn my material into a polished, dynamic HTML presentation. Ask targeted questions if the brief is unclear, consider suitable HTML template systems, then plan the outline, images, motion, and final deck."
+  default_prompt: "Use $high-quality-ppt-web to turn my material into a polished, dynamic HTML presentation. Ask targeted questions if the brief is unclear, preview suitable template directions when visual style matters, then plan the outline, images, motion, and final deck."
 
 policy:
   allow_implicit_invocation: true

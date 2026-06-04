@@ -31,6 +31,9 @@ If cloning or downloading the external repository is required, explain the benef
 
 ## Workflow For beautiful-html-templates
 
+For candidate selection and preview details, read `references/template-selection-protocol.md`.
+For modification and QA details, read `references/template-adaptation-checklist.md`.
+
 1. Ask for occasion and mood.
    - Ask two short questions before choosing:
      - "这次演讲/汇报是什么场合？"
@@ -67,6 +70,13 @@ If cloning or downloading the external repository is required, explain the benef
    - If a comparison table, timeline, map, or matrix layout is missing, design it as a natural extension of the chosen template.
    - Do not import a second template's visual language.
 
+## Known Gaps To Plan Around
+
+- Chart and data visualization coverage is limited; build SVG/CSS/ECharts-style additions inside the chosen template's system when needed.
+- Chinese typography may need explicit fallback stacks, line-height adjustment, and title stress tests.
+- Browser print or PDF export can drift when templates use absolute-positioned decorative elements; verify print/PDF separately if requested.
+- The library is strongest for editorial, product, design review, founder pitch, and creative technical decks; serious academic, finance, and enterprise reporting may require more conservative adaptation.
+
 ## Candidate Selection Heuristics
 
 - Professional but not stiff: try templates like `blue-professional`, `monochrome`, or similarly high-formality clean systems.
@@ -94,4 +104,5 @@ When external templates are used, report:
 - three preview candidates, if previews were made
 - chosen template and tone rationale
 - whether missing layouts were extended
+- Chinese typography, chart, or PDF/export risks handled
 - browser verification performed
