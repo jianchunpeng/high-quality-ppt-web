@@ -5,7 +5,7 @@ description: Orchestrate guizang-ppt-skill for PPT structure, humanizer-zh for C
 
 # High Quality PPT Web
 
-Version: 1.1
+Version: 1.2
 
 Use this skill as a director for web-native presentation work. It coordinates:
 
@@ -33,6 +33,7 @@ Keep this file lean. Load reference files only when the task needs them:
 - `references/style-presets.md`: use when choosing visual direction, audience fit, or default deck style.
 - `references/image-planning.md`: use before generating, placing, cropping, or embedding images.
 - `references/motion-patterns.md`: use when making dynamic or interactive HTML slides.
+- `references/external-template-libraries.md`: use when an external HTML template library could improve visual quality, especially `zarazhangrui/beautiful-html-templates`.
 - `references/quality-checklist.md`: use before delivery and when diagnosing a weak deck.
 - `references/slide-types.md`: use when assigning slide jobs and layouts.
 - `references/design-system.md`: use as fallback visual guardrails when `frontend-slides` is unavailable or too general.
@@ -86,29 +87,35 @@ Choose one mode from the user's situation:
    - Pick one main style preset; do not mix several visual languages casually.
    - Explain the recommendation in one short sentence when asking the user to choose.
 
-4. Image plan.
+4. Template strategy.
+   - If the deck needs a distinctive visual system, load `references/external-template-libraries.md`.
+   - For `beautiful-html-templates`, match occasion and mood against `index.json`, pick three genuinely different candidates, and create title-slide previews before building the full deck.
+   - If using an external template, preserve its visual system and extend missing layouts from inside that system.
+   - If the user wants speed or offline work, use the local `assets/web-slide-template/index.html` instead.
+
+5. Image plan.
    - Load `references/image-planning.md` before image generation or asset placement.
    - Prefer 16:9 landscape images for a 16:9 deck.
    - Decide which slides truly need images, where each image belongs, and how crop risk will be avoided.
 
-5. Copy rewrite.
+6. Copy rewrite.
    - Load `humanizer-zh`.
    - Rewrite titles, bullets, transitions, and speaker notes into speech-ready Chinese.
    - Remove generic slogans, AI-like transitions, bloated abstractions, and repeated sentence shapes.
 
-6. Planning preview.
+7. Planning preview.
    - In master mode, show the concise plan before implementation.
    - Include slide outline, style, image plan, motion/interaction plan, and assumptions.
    - In fast mode, keep the plan internal and proceed.
 
-7. HTML rendering.
+8. HTML rendering.
    - Load `frontend-slides`.
    - Use the fixed 1920x1080 slide stage.
    - Load `references/motion-patterns.md` for dynamic or interactive decks.
    - Adapt `assets/web-slide-template/index.html` when starting from scratch and no project scaffold exists.
    - Use small CSS/JS interactions by default; avoid heavy libraries unless requested or already present.
 
-8. Verification.
+9. Verification.
    - Load `references/quality-checklist.md`.
    - Check desktop and phone viewport behavior when possible.
    - Verify no text overflow, incoherent overlap, broken navigation, awkward image crop, or meaningless motion.
@@ -120,6 +127,7 @@ Choose one mode from the user's situation:
 - Do not fill every slide with generated art. Use images where they carry narrative or evidence.
 - Do not ask a long generic questionnaire. Ask fewer, sharper questions after reading available material.
 - Do not build a static slideshow when the user asked for HTML/web slides. Add useful transitions, reveal states, navigation, and interaction.
+- Do not mash layouts from different external templates into one deck. Pick one visual system and extend it consistently.
 - Do not leave visual verification undone when a browser check is feasible.
 
 ## Delivery Summary

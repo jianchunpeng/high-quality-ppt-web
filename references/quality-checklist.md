@@ -34,6 +34,8 @@ Use this before delivery and when diagnosing a weak deck.
 - Images support the argument instead of filling space.
 - Charts and maps have direct labels, units, and takeaways.
 - The palette is not a single-hue wash.
+- If an external template is used, one visual system is preserved instead of mixing templates.
+- Template placeholders, stats, dates, names, labels, and image slots are all replaced with real content.
 
 ## Motion and Interaction
 
@@ -52,6 +54,7 @@ Use this before delivery and when diagnosing a weak deck.
 - Buttons and interactive controls have focus states.
 - Browser console has no blocking errors.
 - Referenced local assets load correctly.
+- If template previews were created, each preview was opened or browser-checked before asking the user to choose.
 
 ## Failure Signals
 
