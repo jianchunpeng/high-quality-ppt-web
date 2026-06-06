@@ -1,8 +1,8 @@
 interface:
   display_name: "High Quality PPT Web"
-  short_description: "Guide, preview templates, assemble parts, and render dynamic web decks"
+  short_description: "Guide, preview templates, plan images/rhythm, and render dynamic web decks"
   brand_color: "#2E6FDC"
-  default_prompt: "Use $high-quality-ppt-web to turn my material into a polished, dynamic HTML presentation. Ask targeted questions if the brief is unclear, preview suitable template directions when visual style matters, then assemble themes, layouts, images, motion, speaker notes, and the final verified deck."
+  default_prompt: "Use $high-quality-ppt-web to turn my material into a polished, dynamic HTML presentation. Ask targeted questions if the brief is unclear, preview suitable template directions when visual style matters, confirm the style before image generation, decide per slide whether AI image, SVG/process diagram, chart/map, CSS texture, or typography is clearest, reserve stable image slots while authoring HTML, then assemble motion, speaker notes, and the final verified deck."
 
 policy:
   allow_implicit_invocation: true

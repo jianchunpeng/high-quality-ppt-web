@@ -5,7 +5,7 @@ description: Orchestrate guizang-ppt-skill for PPT structure, humanizer-zh for C
 
 # High Quality PPT Web
 
-Version: 1.4
+Version: 1.6
 
 Use this skill as a director for web-native presentation work. It coordinates:
 
@@ -32,6 +32,7 @@ Keep this file lean. Load reference files only when the task needs them:
 - `references/intake-questions.md`: use when the brief is vague or the user needs guided prompting.
 - `references/style-presets.md`: use when choosing visual direction, audience fit, or default deck style.
 - `references/image-planning.md`: use before generating, placing, cropping, or embedding images.
+- `references/visual-rhythm.md`: use before full-deck HTML generation, especially when a deck risks feeling repetitive or slide-to-slide layouts look too similar.
 - `references/motion-patterns.md`: use when making dynamic or interactive HTML slides.
 - `references/external-template-libraries.md`: use when an external HTML template library could improve visual quality, especially `zarazhangrui/beautiful-html-templates`.
 - `references/template-selection-protocol.md`: use when the user should choose a visual direction from three title-slide previews.
@@ -101,20 +102,28 @@ Choose one mode from the user's situation:
 
 5. Image plan.
    - Load `references/image-planning.md` before image generation or asset placement.
+   - Do not generate AI images before the visual style is chosen or confirmed.
+   - After style direction and slide jobs are known, decide per slide whether the clearest implementation is AI-generated image, SVG/process diagram, chart/map, CSS texture, typography, or no media.
    - Prefer 16:9 landscape images for a 16:9 deck.
    - Decide which slides truly need images, where each image belongs, and how crop risk will be avoided.
+   - When HTML work should proceed before images are ready, reserve stable image slots with aspect ratio, crop intent, and relative asset paths, then replace them after planned assets are generated.
 
-6. Copy rewrite.
+6. Visual rhythm plan.
+   - Load `references/visual-rhythm.md` before writing the full deck.
+   - Assign each slide a role, visual form, implementation choice, slot status, media treatment, and motion recipe so the deck does not become one repeated text-card pattern.
+   - For long source documents, preserve complete content in appendices, detail layers, notes, or continuation slides instead of compressing every paragraph into the same main-slide layout.
+
+7. Copy rewrite.
    - Load `humanizer-zh`.
    - Rewrite titles, bullets, transitions, and speaker notes into speech-ready Chinese.
    - Remove generic slogans, AI-like transitions, bloated abstractions, and repeated sentence shapes.
 
-7. Planning preview.
+8. Planning preview.
    - In master mode, show the concise plan before implementation.
-   - Include slide outline, style, image plan, motion/interaction plan, and assumptions.
+   - Include slide outline, style, image plan, visual rhythm plan, motion/interaction plan, and assumptions.
    - In fast mode, keep the plan internal and proceed.
 
-8. HTML rendering.
+9. HTML rendering.
    - Load `frontend-slides`.
    - Use the fixed 1920x1080 slide stage.
    - Load `references/motion-patterns.md` for dynamic or interactive decks.
@@ -124,7 +133,7 @@ Choose one mode from the user's situation:
    - Adapt `assets/web-slide-template/index.html` when starting from scratch and no project scaffold exists.
    - Use small CSS/JS interactions by default; avoid heavy libraries unless requested or already present.
 
-9. Verification.
+10. Verification.
    - Load `references/quality-checklist.md`.
    - Check desktop and phone viewport behavior when possible.
    - Verify no text overflow, incoherent overlap, broken navigation, awkward image crop, or meaningless motion.
@@ -133,7 +142,10 @@ Choose one mode from the user's situation:
 ## Non-Negotiables
 
 - Do not generate portrait-first images for normal 16:9 slides unless the layout intentionally needs a vertical panel.
+- Do not generate AI images before style direction is chosen and the slide-level media decision says an image is the right explanation tool.
 - Do not fill every slide with generated art. Use images where they carry narrative or evidence.
+- Do not let a long deck collapse into one repeated page pattern. Vary slide roles, density, media, diagrams, and interaction while preserving one visual system.
+- Do not use generated images as decorative wallpaper only. Each generated asset needs a slide role, crop plan, and reuse/placement decision.
 - Do not ask a long generic questionnaire. Ask fewer, sharper questions after reading available material.
 - Do not build a static slideshow when the user asked for HTML/web slides. Add useful transitions, reveal states, navigation, and interaction.
 - Do not mash layouts from different external templates into one deck. Pick one visual system and extend it consistently.

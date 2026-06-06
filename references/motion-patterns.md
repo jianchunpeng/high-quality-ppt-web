@@ -38,6 +38,15 @@ Use one transition motif per deck:
 
 Avoid random transition types on every slide.
 
+For long decks, avoid one generic fade-up recipe everywhere. Assign motion by slide job:
+
+- chapter opener: chapter number scale and settle
+- process: path draw, then node reveal
+- matrix: row/column reveal, then highlight
+- data: axis/grid first, then values, then takeaway
+- detail layer: calm modal open, no flashy transition
+- closing synthesis: loop/path continuation or final build-up
+
 ## Interaction Patterns
 
 - tabs: compare scenarios or audiences
@@ -46,6 +55,7 @@ Avoid random transition types on every slide.
 - hover/focus labels: dense diagrams or maps
 - animated counters: key numbers with clear units
 - mini index: jump to sections in long decks
+- detail layers: preserve source text without crowding main slides
 
 Do not make interaction necessary to read essential content unless the deck is being used live and the presenter controls it.
 

@@ -2,6 +2,8 @@
 
 Use these patterns to choose slide structure. Do not force all types into one deck.
 
+For decks longer than 12 slides, choose at least four slide roles before writing HTML. Do not make every source section a generic `content` slide.
+
 ## title
 
 Purpose: establish topic, position, and tone.
@@ -51,6 +53,45 @@ Use:
 Avoid:
 - Bullet lists longer than five items
 - Equal visual weight for everything
+
+## process
+
+Purpose: explain a workflow, sequence, responsibility chain, or operating model.
+
+Use:
+- 4-7 nodes with arrows, lanes, or phases
+- One verb per node
+- Path-draw or node-reveal motion if building HTML
+
+Avoid:
+- Turning a process into paragraphs
+- Diagrams whose labels are smaller than body text
+
+## matrix
+
+Purpose: classify risks, options, roles, or priorities.
+
+Use:
+- Two clear axes or a grid of named categories
+- Strong row/column labels
+- One highlighted cell or insight when useful
+
+Avoid:
+- Dense tables without a conclusion
+- Color-only meaning
+
+## detail-layer
+
+Purpose: preserve complete source material without crowding the live-talk slide.
+
+Use:
+- Main slide with claim and selected evidence
+- Button, appendix cue, speaker note, or modal for full text
+- Clear visual distinction between presentation content and reference content
+
+Avoid:
+- Hiding essential content behind interaction if the deck must be read offline
+- Shrinking source paragraphs until they are unreadable
 
 ## compare
 

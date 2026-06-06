@@ -30,6 +30,10 @@ Use this before delivery and when diagnosing a weak deck.
 ## Visuals
 
 - Image plan exists before generated images are used.
+- No AI image was generated before the visual direction was chosen or confirmed.
+- The outline/rhythm plan marks each slide's implementation choice: AI image, SVG/process diagram, chart/map, CSS texture, typography-only, or no media.
+- SVG/process diagrams are used where they explain exact sequence, logic, scoring, or relationships more clearly than generated images.
+- HTML image slots are stable before asset insertion: fixed aspect ratio, intended crop, `data-image-slot` or equivalent identifier, and relative path.
 - Normal slide images are landscape-first.
 - No important subject is cropped off.
 - Images support the argument instead of filling space.
@@ -41,6 +45,9 @@ Use this before delivery and when diagnosing a weak deck.
 - Added charts or data components match the chosen template's palette, spacing, and component grammar.
 - Theme colors, type scale, surfaces, and accents come from a token system or coherent template variables.
 - Layouts are selected as reusable page roles instead of improvised one-off pages.
+- Screenshot thumbnails show rhythm: section openers, content slides, diagrams, detail layers, and synthesis pages are visually distinguishable.
+- No three consecutive main slides use the same layout, density, and motion recipe unless it is a deliberate repeated sequence.
+- Generated images have a visible purpose and do not function as repeated wallpaper behind every slide.
 
 ## Motion and Interaction
 
@@ -80,3 +87,4 @@ Revise if any of these appear:
 - presenter notes leak onto audience-visible slides
 - theme tokens are ignored and random hard-coded colors accumulate
 - the final answer says "not verified" when verification was feasible
+- the deck feels monotonous because every page uses the same title/list/card formula
